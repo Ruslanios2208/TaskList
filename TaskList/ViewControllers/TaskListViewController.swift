@@ -63,6 +63,19 @@ class TaskListViewController: UITableViewController {
         present(alert, animated: true)
     }
     
+    private func showAlert(withTitle title: String, andMessage message: String, cellIndex: Int, configuration: ((UITextField) -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let updateAction = UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
+            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
+            update(to: task, at: cellIndex)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        alert.addAction(updateAction)
+        alert.addAction(cancelAction)
+        alert.addTextField(configurationHandler: configuration)
+        present(alert, animated: true)
+    }
+    
     private func save(_ taskName: String) {
         let task = Task(context: viewContext)
         task.title = taskName
@@ -70,6 +83,13 @@ class TaskListViewController: UITableViewController {
         
         let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
         tableView.insertRows(at: [cellIndex], with: .automatic)
+        
+        DataStorage.shared.saveContext()
+    }
+    
+    private func update(to taskName: String, at index: Int) {
+        taskList[index].title = taskName
+        tableView.reloadData()
         
         DataStorage.shared.saveContext()
     }
@@ -90,10 +110,11 @@ extension TaskListViewController {
         return cell
     }
 }
+
 // MARK: - Table view delegate
 extension TaskListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(withTitle: "Update Task", andMessage: "What do you want to do?") { [unowned self] textField in
+        showAlert(withTitle: "Update Task", andMessage: "What do you want to do?", cellIndex: indexPath.row) { [unowned self] textField in
             textField.text = taskList[indexPath.row].title
         }
     }
