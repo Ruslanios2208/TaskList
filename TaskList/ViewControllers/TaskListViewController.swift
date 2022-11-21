@@ -63,11 +63,11 @@ class TaskListViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    private func showAlert(withTitle title: String, andMessage message: String, cellIndex: Int, configuration: ((UITextField) -> Void)? = nil) {
+    private func showAlert(withTitle title: String, andMessage message: String, forCell index: Int, configuration: ((UITextField) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let updateAction = UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
             guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            update(to: task, at: cellIndex)
+            update(to: task, at: index)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         alert.addAction(updateAction)
@@ -114,7 +114,7 @@ extension TaskListViewController {
 // MARK: - Table view delegate
 extension TaskListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(withTitle: "Update Task", andMessage: "What do you want to do?", cellIndex: indexPath.row) { [unowned self] textField in
+        showAlert(withTitle: "Update Task", andMessage: "What do you want to do?", forCell: indexPath.row) { [unowned self] textField in
             textField.text = taskList[indexPath.row].title
         }
     }
