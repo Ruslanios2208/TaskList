@@ -13,7 +13,7 @@
 		A8580EE82926A14400480465 /* TaskList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8580EE62926A14400480465 /* TaskList.xcdatamodeld */; };
 		A8580EEA2926A14500480465 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8580EE92926A14500480465 /* Assets.xcassets */; };
 		A8580EED2926A14500480465 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8580EEB2926A14500480465 /* LaunchScreen.storyboard */; };
-		E46D1FD0292BBE4A00C01A22 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D1FCF292BBE4A00C01A22 /* DataStorage.swift */; };
+		E46D1FD0292BBE4A00C01A22 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D1FCF292BBE4A00C01A22 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		A8580EE92926A14500480465 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8580EEC2926A14500480465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8580EEE2926A14500480465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E46D1FCF292BBE4A00C01A22 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		E46D1FCF292BBE4A00C01A22 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		E46D1FCE292BBE2200C01A22 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E46D1FCF292BBE4A00C01A22 /* DataStorage.swift */,
+				E46D1FCF292BBE4A00C01A22 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 			files = (
 				A8580EE82926A14400480465 /* TaskList.xcdatamodeld in Sources */,
 				A8580EE22926A14400480465 /* TaskListViewController.swift in Sources */,
-				E46D1FD0292BBE4A00C01A22 /* DataStorage.swift in Sources */,
+				E46D1FD0292BBE4A00C01A22 /* StorageManager.swift in Sources */,
 				A8580EDE2926A14400480465 /* AppDelegate.swift in Sources */,
 				A8580EE02926A14400480465 /* SceneDelegate.swift in Sources */,
 			);
